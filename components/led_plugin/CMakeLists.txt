@@ -1,2 +1,2 @@
-idf_component_register(SRCS "led_plugin.c"
+idf_component_register(SRCS "led_plugin.cpp"
                     INCLUDE_DIRS "include")

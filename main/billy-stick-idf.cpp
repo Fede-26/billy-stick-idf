@@ -1,19 +1,74 @@
 #include <stdio.h>
+#include <string.h>
 #include <inttypes.h>
+
 #include "sdkconfig.h"
+
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+
 #include "esp_chip_info.h"
 #include "esp_flash.h"
 #include "esp_log.h"
-#include "lcd_utils.hpp"
-#include "string.h"
-#define TAG "main"
 
+#include "button.h"
+
+#include "lcd_utils.hpp"
+#include "led_utils.hpp"
+
+
+#define TAG "main"
 static LGFX_LiLyGo_TDongleS3 lcd;
+
+button_t btn;
+
+unsigned int white = 0xffffffu;
+unsigned int black = 0x000000u;
+unsigned int red = 0xff0000u;
+unsigned int green = 0x00ff00u;
+unsigned int blue = 0x0000ffu;
+
+void on_button(button_t *btn, button_state_t state)
+{
+  if (state == BUTTON_PRESSED)
+  {
+    led(uintToRgb(white));
+    ESP_LOGI(TAG, "Button pressed");
+  }
+  else if (state == BUTTON_RELEASED)
+  {
+    led(uintToRgb(black));
+    ESP_LOGI(TAG, "Button released");
+  }
+  else if (state == BUTTON_CLICKED)
+  {
+    ESP_LOGI(TAG, "Button clicked");
+  }
+  else if (state == BUTTON_PRESSED_LONG)
+  {
+    led(uintToRgb(blue));
+    ESP_LOGI(TAG, "Button pressed long");
+  }
+}
 
 extern "C" void app_main(void)
 {
+
+  ESP_LOGI(TAG, "Initializing LED");
+  led_init();
+
+  ESP_LOGI(TAG, "Initializing button");
+  //
+  // Push button connected to GPIO0:
+  //
+  btn.gpio = (gpio_num_t)0;
+  btn.pressed_level = 0;
+  btn.internal_pull = true;
+  btn.autorepeat    = false;
+  btn.callback      = on_button;
+
+  ESP_ERROR_CHECK(button_init(&btn));
+
   ESP_LOGI(TAG, "Initializing LCD");
 
   //
@@ -65,4 +120,8 @@ extern "C" void app_main(void)
   // printf("Restarting now.\n");
   // fflush(stdout);
   // // esp_restart();
+
+  while(1){
+    vTaskDelay(1000 / portTICK_PERIOD_MS);
+  }
 }
