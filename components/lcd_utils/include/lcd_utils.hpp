@@ -90,4 +90,7 @@ public:
     setPanel(&_panel_instance);
   }
 };
+
+void drawPage(LGFX_LiLyGo_TDongleS3 &lcd, int page, int numPages, const char *title, const char *text);
+
 #endif

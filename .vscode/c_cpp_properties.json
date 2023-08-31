@@ -19,7 +19,9 @@
         {
             "name": "ESP32-C3",
             "includePath": [
-                "${default}"
+                "${default}",
+                "${workspaceFolder}/components/**",
+                "${workspaceFolder}/main/**"
             ],
             "defines": [
                 "_DEBUG",
