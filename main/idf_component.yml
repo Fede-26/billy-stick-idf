@@ -17,11 +17,11 @@ dependencies:
   #   public: true
   # button:
   #   path: /home/federico/Programs/Embedded/Espressif-Data/esp-iot-solution/components/button
-  esp_idf_lib_helpers:
-    path: /home/federico/Programs/Embedded/Espressif-Data/esp-idf-lib/components/esp_idf_lib_helpers
-  color:
-    path: /home/federico/Programs/Embedded/Espressif-Data/esp-idf-lib/components/color
-  lib8tion:
-    path: /home/federico/Programs/Embedded/Espressif-Data/esp-idf-lib/components/lib8tion
-  led_strip_spi:
-    path: /home/federico/Programs/Embedded/Espressif-Data/esp-idf-lib/components/led_strip_spi
+  # esp_idf_lib_helpers:
+  #   path: /home/federico/Programs/Embedded/Espressif-Data/esp-idf-lib/components/esp_idf_lib_helpers
+  # color:
+  #   path: /home/federico/Programs/Embedded/Espressif-Data/esp-idf-lib/components/color
+  # lib8tion:
+  #   path: /home/federico/Programs/Embedded/Espressif-Data/esp-idf-lib/components/lib8tion
+  # led_strip_spi:
+  #   path: /home/federico/Programs/Embedded/Espressif-Data/esp-idf-lib/components/led_strip_spi

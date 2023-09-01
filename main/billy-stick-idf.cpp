@@ -22,18 +22,21 @@
 
 LGFX_LiLyGo_TDongleS3 lcd;
 
-void on_button_long(void *arg)
+void on_button_long(button_t *btn, button_state_t event)
 {
 
-    unsigned int white = 0xffffffu;
-    unsigned int black = 0x000000u;
-    unsigned int red = 0xff0000u;
-    unsigned int green = 0x00ff00u;
-    unsigned int blue = 0x0000ffu;
+    // unsigned int white = 0xffffffu;
+    // unsigned int black = 0x000000u;
+    // unsigned int red = 0xff0000u;
+    // unsigned int green = 0x00ff00u;
+    // unsigned int blue = 0x0000ffu;
     // led(uintToRgb(blue));
-    ESP_LOGI(TAG, "Button pressed long");
-    button_unregister_all();
-    led_plugin_entry(&lcd);
+    if (event == BUTTON_PRESSED)
+    {
+        ESP_LOGI(TAG, "Button pressed");
+        button_unregister_all();
+        led_plugin_entry(&lcd);
+    }
 }
 
 extern "C" void app_main(void)
@@ -48,7 +51,7 @@ extern "C" void app_main(void)
     //
     // button_t btn;
     button_t btn = *button_get_button();
-    ESP_ERROR_CHECK(button_register_cb(&btn, SHORT_TIME, on_button_long, NULL));
+    button_register_cb(on_button_long);
 
     // ESP_ERROR_CHECK(button_init(&btn));
 
