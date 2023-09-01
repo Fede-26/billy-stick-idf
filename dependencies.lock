@@ -1,0 +1,33 @@
+dependencies:
+  color:
+    component_hash: null
+    source:
+      path: /home/federico/Programs/Embedded/Espressif-Data/esp-idf-lib/components/color
+      type: local
+    version: '*'
+  esp_idf_lib_helpers:
+    component_hash: null
+    source:
+      path: /home/federico/Programs/Embedded/Espressif-Data/esp-idf-lib/components/esp_idf_lib_helpers
+      type: local
+    version: '*'
+  idf:
+    component_hash: null
+    source:
+      type: idf
+    version: 5.1.1
+  led_strip_spi:
+    component_hash: null
+    source:
+      path: /home/federico/Programs/Embedded/Espressif-Data/esp-idf-lib/components/led_strip_spi
+      type: local
+    version: '*'
+  lib8tion:
+    component_hash: null
+    source:
+      path: /home/federico/Programs/Embedded/Espressif-Data/esp-idf-lib/components/lib8tion
+      type: local
+    version: '*'
+manifest_hash: 2710e6b43aed847732cc95c6cbb150c0444adbab2a265e183bd73c339647ddda
+target: esp32s3
+version: 1.0.0

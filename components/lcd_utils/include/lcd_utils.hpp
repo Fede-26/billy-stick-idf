@@ -4,6 +4,8 @@
 #define LGFX_USE_V1
 #include "LovyanGFX.hpp"
 
+
+
 // Display (ST7735s) hardware configuration:
 #define DISPLAY_WIDTH 160
 #define DISPLAY_HEIGHT 80

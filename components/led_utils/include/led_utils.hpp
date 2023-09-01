@@ -1,5 +1,4 @@
-#ifndef LED_UTILS_HPP
-#define LED_UTILS_HPP
+#pragma once
 
 #include "led_strip_spi.h"
 
@@ -8,7 +7,6 @@
 #define RGBLED_DI       40
 #define LEDSTRIP_LEN     1
 
-void led_init();
+void led_init(void);
 rgb_t uintToRgb(unsigned int color);
 void led(rgb_t color);
-#endif // LED_UTILS_HPP
